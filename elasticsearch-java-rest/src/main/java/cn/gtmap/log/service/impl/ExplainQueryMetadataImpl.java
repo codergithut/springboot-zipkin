@@ -2,6 +2,7 @@ package cn.gtmap.log.service.impl;
 
 import cn.gtmap.log.domain.query.QueryMetadata;
 import cn.gtmap.log.service.ExplainQueryMetadata;
+import cn.gtmap.log.util.ElasticSearchRestClient;
 import com.alibaba.fastjson.JSON;
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.ContentType;
@@ -53,38 +54,9 @@ public class ExplainQueryMetadataImpl implements ExplainQueryMetadata {
         data.putAll(dealAggs(aggregationMetaData));
         data.putAll(dealQuery(queryMetaDatas));
 
-        String str = JSON.toJSONString(data);
-
-        Map<String, String> params = Collections.emptyMap();
-
-        HttpEntity entity = new NStringEntity(str, ContentType.APPLICATION_JSON);
-
-        Response response = client.performRequest("POST", endponit, params, entity);
-        HttpEntity entity1 = response.getEntity();
-        return convertStreamToString(entity1.getContent());
+        return ElasticSearchRestClient.elasticDo(data, endponit, client, "POST");
     }
 
-    public String convertStreamToString(InputStream is) {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder sb = new StringBuilder();
-
-        String line = null;
-        try {
-            while ((line = reader.readLine()) != null) {
-                sb.append(line + "/n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                is.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-        return sb.toString();
-    }
 
     /**
      * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
