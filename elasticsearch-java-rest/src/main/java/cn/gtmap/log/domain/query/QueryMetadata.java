@@ -13,14 +13,25 @@ import java.util.List;
  */
 public class QueryMetadata {
 
+    /**
+     * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+     * @description 查询入口
+     */
     private String endpoint;
 
+    /**
+     * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+     * @description 统计查询描述
+     */
     private AggregationMetaData aggregationMetaData = new AggregationMetaData();
 
+    /**
+     * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+     * @description 查询过滤条件描述
+     */
     private List<MustQueryMetaData> queryMustMetaData;
 
-
-
+    /* set get 方法 */
     public AggregationMetaData getAggregationMetaData() {
         return aggregationMetaData;
     }
@@ -50,13 +61,32 @@ public class QueryMetadata {
         return JSON.toJSONString(this);
     }
 
+    /**
+     * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+     * @description 统计查询源信息数据封装
+     *
+     */
     public class AggregationMetaData{
+
+        /**
+         * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+         * @description 子查询统计
+         */
         private AggregationMetaData aggregationMetaData;
 
+        /**
+         * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+         * @description 类别 Count Average 等等，类别不同构造的json数据不同
+         */
         private String type;
 
+        /**
+         * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+         * @description 统计字段的名称
+         */
         private String fieldName;
 
+        /* set get 方法 */
         public AggregationMetaData getAggregationMetaData() {
             return aggregationMetaData;
         }
@@ -83,7 +113,8 @@ public class QueryMetadata {
     }
 
     /**
-     * 强制必须条件
+     * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+     * @description 强制满足的需求或条件
      */
     public class MustQueryMetaData {
 
@@ -111,6 +142,7 @@ public class QueryMetadata {
          */
         private String filterDo;
 
+        /* set get 方法 */
         public String getFiledName() {
             return filedName;
         }
@@ -145,9 +177,11 @@ public class QueryMetadata {
     }
 
     /**
-     * 选择条件
+     * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+     * @description 选择性可以满足的条件 注释同上
      */
     public class ShouldQueryMetaData {
+
         private String type;
 
         private String filedName;

@@ -13,13 +13,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.UUID;
 
 
 /**
  * @author <a href="mailto:Administrator@gtmap.cn">Administrator</a>
  * @version 1.0, 2017/7/10
- * @description
+ * @description 对上面代码进行单元测试
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ElasticSearchBoot.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -33,7 +34,10 @@ public class ElasticSearchLogTest {
     @Test
     public void StructuringAggregationTest() throws IOException {
         StatisticsRequestMessage requestMessage = new StatisticsRequestMessage();
-        System.out.println(abstractQueryInfoMessage.getRequestMessage(requestMessage));
+        requestMessage.setUrlName("http:/c*");
+        requestMessage.setEndTime(new Date());
+        requestMessage.setEndTime(new Date());
+        System.out.println(abstractQueryInfoMessage.getRequestMessage(requestMessage).getRequestInfo());
     }
 
     private RequestMessage initRequestMessage() {

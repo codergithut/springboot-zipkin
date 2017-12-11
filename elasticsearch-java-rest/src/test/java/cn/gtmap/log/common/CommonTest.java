@@ -32,41 +32,8 @@ public class CommonTest {
     }
 
     @Test
-    public void getDiGui() {
-
-        int i = 0;
-
-
-       Map<String,Map<String,Object>> data = new HashMap<String,Map<String,Object>>();
-        do {
-            Map<String,Map<String,Object>> ref ;
-            Map<String, Object> xx = new HashMap<String,Object>();
-            data.put("ref", xx);
-            data.put("haha",xx);
-            xx.put("t", i ++);
-//            ref = data.get("haha");
-//            ref.put("xx", xx);
-            i++;
-        } while (i < 10);
-//        System.out.println(JSON.toJSONString(oldMap));
-}
-
-    @Test
     @Ignore
     public void testJavaClient() throws IOException {
-//        RestHighLevelClient restClient = new RestHighLevelClient(RestClient.builder(
-//                new HttpHost("localhost", 9200, "http")));
-//
-//        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-//        TermsAggregationBuilder aggregation = AggregationBuilders.terms("count")
-//                .field("name");
-//        searchSourceBuilder.aggregation(aggregation);
-//
-//
-//        SearchRequest searchRequest = new SearchRequest();
-//        searchRequest.source(searchSourceBuilder);
-//
-//        restClient.search(searchRequest);
 
         RestClient restClient = RestClient.builder(
                 new HttpHost("10.1.1.147", 9200, "http"),

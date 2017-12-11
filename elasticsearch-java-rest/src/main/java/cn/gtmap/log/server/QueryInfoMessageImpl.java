@@ -10,14 +10,13 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 /**
  * @author <a href="mailto:Administrator@gtmap.cn">Administrator</a>
  * @version 1.0, 2017/12/11
- * @description
+ * @description 实际业务查询业务逻辑
  */
 public class QueryInfoMessageImpl extends AbstractQueryInfoMessage {
 

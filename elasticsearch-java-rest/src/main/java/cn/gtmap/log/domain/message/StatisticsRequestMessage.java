@@ -5,16 +5,29 @@ import java.util.Date;
 /**
  * @author <a href="mailto:Administrator@gtmap.cn">Administrator</a>
  * @version 1.0, 2017/12/11
- * @description
+ * @description 获取统计信息消息
  */
 public class StatisticsRequestMessage extends RequestMessage {
 
+    /**
+     * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+     * @description 统计开始时间
+     */
     private Date beginTime;
 
+    /**
+     * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+     * @description 统计结束时间
+     */
     private Date endTime;
 
+    /**
+     * @author <a href="mailto:tianjian@gtmap.cn">tianjian</a>
+     * @description 需要查询的正则式
+     */
     private String urlName;
 
+    /* set get 方法 */
     public Date getBeginTime() {
         return beginTime;
     }
